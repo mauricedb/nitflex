@@ -1,16 +1,20 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
+import Header from './header';
+import Billboard from './billboard';
+import GenreList from './genre-list';
 
-class MainPage extends Component {
-  render() {
-    return (
-      <div>
-        {this.constructor.name}
-      </div>
-    );
-  }
-}
+const MainPage = ({ user, movies, startPlaying }) => (
+  <div>
+    <Header user={user} />
+    <Billboard />
+    <GenreList movies={movies} startPlaying={startPlaying} />
+  </div>
+);
 
 MainPage.propTypes = {
+  user: PropTypes.object.isRequired,
+  movies: PropTypes.array.isRequired,
+  startPlaying: PropTypes.func.isRequired,
 };
 
 export default MainPage;
