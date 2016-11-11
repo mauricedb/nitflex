@@ -8,9 +8,11 @@ class AppContainer extends Component {
     this.state = { 
       user: null,
       movies: null,
+      playing: null,
     };
     this.loginAsUser = this.loginAsUser.bind(this);
     this.startPlaying = this.startPlaying.bind(this);
+    this.stopPlaying = this.stopPlaying.bind(this);
   }
 
   componentWillMount() {
@@ -36,6 +38,10 @@ class AppContainer extends Component {
     this.setState({ playing: movie });
   }
 
+  stopPlaying() {
+    this.setState({ playing: null });
+  }
+
   loginAsUser(user) {
     if (user.rememberMe) {
       localStorage.user = JSON.stringify(user);
@@ -54,6 +60,7 @@ class AppContainer extends Component {
         movies={movies}
         startPlaying={this.startPlaying}
         playing={playing}
+        stopPlaying={this.stopPlaying}
       />
     );
   }
