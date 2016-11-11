@@ -3,6 +3,12 @@ import React, { Component, PropTypes } from 'react';
 class GenreRowMovie extends Component {
   constructor(props) {
     super(props);
+
+    this.expandMovie = this.expandMovie.bind(this);
+  }
+
+  expandMovie() {
+    this.props.expandMovie(this.props.movie);
   }
 
   render() {
@@ -28,6 +34,7 @@ class GenreRowMovie extends Component {
 
 GenreRowMovie.propTypes = {
   movie: PropTypes.object.isRequired,
+  expandMovie: PropTypes.func.isRequired,
 };
 
 export default GenreRowMovie;
