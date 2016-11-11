@@ -3,7 +3,7 @@ import LoginPage from './login-page';
 import PlayingMovie from './playing-movie';
 import MainPage from './main-page';
 
-const App = ({ user, movies, playing, loginAsUser, startPlaying, stopPlaying }) => {
+const AppPresentation = ({ user, movies, playing, loginAsUser, startPlaying, stopPlaying }) => {
   let component = null;
 
   if (!user) {
@@ -21,7 +21,7 @@ const App = ({ user, movies, playing, loginAsUser, startPlaying, stopPlaying }) 
   );
 };
 
-App.propTypes = {
+AppPresentation.propTypes = {
   user: PropTypes.object,
   movies: PropTypes.array,
   playing: PropTypes.object,
@@ -30,4 +30,4 @@ App.propTypes = {
   stopPlaying: PropTypes.func.isRequired,
 };
 
-export default App;
+export default AppPresentation;
