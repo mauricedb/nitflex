@@ -8,7 +8,7 @@ const Billboard = ({ movie }) => (
     <img
       className="img-responsive"
       alt={movie.title}
-      src={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
+      src={`http://image.tmdb.org/t/p/w600/${movie.backdrop_path}`}
     />
   </div>
 );
