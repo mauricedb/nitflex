@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css';
+
+//  npm install bootstrap --save
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-  <App />,
+  <App auser={{}}/>,
   document.getElementById('root')
 );
+
+
+
+

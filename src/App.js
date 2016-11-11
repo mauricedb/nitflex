@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { PropTypes } from 'react';
+import LoginPage from './login-page';
+import PlayingMovie from './playing-movie';
+import MainPage from './main-page';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+const App = ({ user, movies, playing, loginAsUser, startPlaying, stopPlaying }) => {
+  let component = null;
+
+  if (!user) {
+    component = <LoginPage loginAsUser={loginAsUser} />;
+  } else if (playing) {
+    component = <PlayingMovie movie={playing} stopPlaying={stopPlaying} />;
+  } else {
+    component = <MainPage user={user} movies={movies} startPlaying={startPlaying} />;
   }
-}
+
+  return (
+    <div className="container">
+      {component}
+    </div>
+  );
+};
+
+App.propTypes = {
+  user: PropTypes.object,
+  movies: PropTypes.array,
+  playing: PropTypes.object,
+  loginAsUser: PropTypes.func.isRequired,
+  startPlaying: PropTypes.func.isRequired,
+  stopPlaying: PropTypes.func.isRequired,
+};
 
 export default App;
