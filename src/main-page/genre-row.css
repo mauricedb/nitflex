@@ -1,0 +1,9 @@
+.genre-row .genre-row-movie {
+    padding: 0;
+}
+
+.genre-row .genre-row-movie .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
