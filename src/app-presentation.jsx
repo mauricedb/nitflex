@@ -2,12 +2,15 @@ import React, { PropTypes } from 'react';
 import LoginPage from './login-page';
 import PlayingMovie from './playing-movie';
 import MainPage from './main-page';
+import AjaxLoading from './utils/ajax-loading';
 
 const AppPresentation = ({ user, movies, playing, loginAsUser, startPlaying, stopPlaying }) => {
   let component = null;
 
   if (!user) {
     component = <LoginPage loginAsUser={loginAsUser} />;
+  } else if (!movies) {
+    component = <AjaxLoading />;
   } else if (playing) {
     component = <PlayingMovie movie={playing} stopPlaying={stopPlaying} />;
   } else {
