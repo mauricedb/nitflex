@@ -6,7 +6,7 @@ import GenreList from './genre-list';
 const MainPage = ({ user, movies, startPlaying }) => (
   <div>
     <Header user={user} />
-    <Billboard />
+    <Billboard movie={movies[0]}/>
     <GenreList movies={movies} startPlaying={startPlaying} />
   </div>
 );

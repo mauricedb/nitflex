@@ -40,12 +40,13 @@ class AppContainer extends Component {
   }
 
   render() {
-    const { user } = this.state;
+    const { user, movies } = this.state;
 
     return (
       <AppPresentation
         user={user}
         loginAsUser={this.loginAsUser}
+        movies={movies}
       />
     );
   }
