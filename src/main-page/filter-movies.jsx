@@ -9,11 +9,17 @@ class FilterMovies extends Component {
     };
 
     this.onSearchChange = this.onSearchChange.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
   onSearchChange(e) {
     const search = e.target.value;
     this.setState({ search });
+  }
+
+  filterMovies(e) {
+    e.preventDefault();
+    this.props.filterMovies(this.state.search);
   }
 
   render() {
@@ -30,7 +36,7 @@ class FilterMovies extends Component {
             placeholder="Search"
           />
           <span className="input-group-btn">
-            <button className="btn btn-default">
+            <button className="btn btn-default" onClick={this.filterMovies}>
               <i className="glyphicon glyphicon-search" />
             </button>
           </span>
@@ -39,5 +45,9 @@ class FilterMovies extends Component {
     );
   }
 }
+
+FilterMovies.propTypes = {
+  filterMovies: PropTypes.func.isRequired,
+};
 
 export default FilterMovies;
