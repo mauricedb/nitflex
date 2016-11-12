@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import FilterMovies from './filter-movies';
 
 const Header = ({ user }) => (
   <nav className="navbar navbar-default">
@@ -14,6 +15,7 @@ const Header = ({ user }) => (
           {user.name}
         </p>
       </div>
+      <FilterMovies />
     </div>
   </nav>
 );
